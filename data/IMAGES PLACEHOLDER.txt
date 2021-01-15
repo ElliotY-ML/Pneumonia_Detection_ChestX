@@ -1,0 +1,7 @@
+NIH Chest X-rays (Version 3)
+Over 112,000 Chest X-ray images from more than 30,000 unique patients
+41.98GB
+
+https://www.kaggle.com/nih-chest-xrays/data
+
+Extract "images_0*" folders into an "images" folder to continue work.

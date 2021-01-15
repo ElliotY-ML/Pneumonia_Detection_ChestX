@@ -1,0 +1,3 @@
+Model weights exceed github's individual file size limit.  
+Optimal Weights are generated during model training and 
+an appropriate loss parameter is tracked.
