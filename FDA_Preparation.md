@@ -1,4 +1,4 @@
-# FDA  Submission
+# FDA  Preparation
 
 **Your Name:**  Elliot Y.
 
@@ -8,14 +8,15 @@
 
 ### 1. General Information
 
-**Intended Use Statement:**   <br>This algorithm is comprised of a Convolutional Neural Network model to analyze Chest X-Ray images to detect the presence of pneumonia.  It is intended to assist radiologists in the clinical setting and should be used in conjunction with a Radiologist's review of the Xray, sputnum cultures, and a review of a patient's medical history for diagnostic validation.
+**Intended Use Statement:**<br> This algorithm is comprised of a Convolutional Neural Network model to analyze Chest X-Ray images to detect the presence of pneumonia.  It is intended to assist radiologists in the clinical setting and should be used in conjunction with a Radiologist's review of the Xray, sputnum cultures, and a review of a patient's medical history for diagnostic validation.
 
-**Indications for Use:**  <br>This algorithm may be applied to patients who's medical history may indicate pneumonia infection, of ages 1 thru 95 and of gender Male or Female. X-Ray images must be taken with a PA or AP viewing position.
+**Indications for Use:**<br> This algorithm may be applied to patients who's medical history may indicate pneumonia infection, of ages 1 thru 95 and of gender Male or Female. X-Ray images must be taken with a PA or AP viewing position.
 
-**Device Limitations:**  <br>This algorithm must be run with a computer that meet minimum GPU and RAM requirements.
-<br> Furthermore, presence of Infiltration may confound device performance.  Infiltration may cause the device to classify an X-Ray image as Positive Pneumonia.
+**Device Limitations:**<br> This algorithm must be run with a computer that meet minimum GPU and RAM requirements.<br> 
+Furthermore, presence of Infiltration may confound device performance.  Infiltration may cause the device to classify an X-Ray image as Positive Pneumonia.
 
-**Clinical Impact of Performance:**  <br>The goal of this device is assist Radiologists with their review of X-Rays for indications of Pneumonia.  A Radiologist is required to review all X-Rays and validate results.<br>When this device incorrectly predicts a False Positive, a patient may be directed for a sputnum culture and the diagnosis can be validated with the sputnum culture.  <br>
+**Clinical Impact of Performance:**<br>
+The goal of this device is assist Radiologists with their review of X-Rays for indications of Pneumonia.  A Radiologist is required to review all X-Rays and validate results.<br>When this device incorrectly predicts a False Positive, a patient may be directed for a sputnum culture and the diagnosis can be validated with the sputnum culture.  <br>
 On the other hand, a False Negative can adversely impact a patient.  If the False Negative is not revised by a Radiologist, a clinician may proceed with an incorrect diagnosis and not proceed to sputnum cultures.
 <br>Therefore, it is critical for Radiologists to review and validate all results.
 
@@ -117,9 +118,9 @@ metrics = ['binary_accuracy']
     
 
 Model 3 Training Performance Visualization
-![Model 3 Training Performance](./Model_Training_Performance.png)
-![P-R Curve](./Precision_Recall_Curve.png)
-![ROC Curve](./ROC_Curve.png)
+![Model 3 Training Performance](out/Model_Training_Performance.png)
+![P-R Curve](out/Precision_Recall_Curve.png)
+![ROC Curve](out/ROC_Curve.png)
 
 Confusion Matrix:
 Optimize by ROC determined Threshold:
@@ -163,7 +164,7 @@ Based on EDA work, the Data_Entr_2017.cvs contains 1,431 Images positive for Pne
 
 The data set was split into 80% Training data and 20% for validation data.
 
-![Age](./Age_Distribution.png)
+![Age](out/Age_Distribution.png)
 
 **Description of Training Dataset:** 
 <br>For the training data set, the positive to negative images must be equal in number.  
@@ -209,7 +210,3 @@ To bypass inaccuracies introduced by NLP, a digital form should be provided to R
 <br>Based on the provided paper by P.Rajpurkarpar, et al., the performance standard is F1 scores comparing radiologists and algorithms.  F1 scores are the harmonic average of the precision and recall of the models.
 <br>Rajpurkarpar's CheXNet algorithm achieve an F1 score of 0.435, while Radiologists averaged an F1 score of 0.387.  These would be the benchmarks to compare newly developed algorihms to. 
 
-
-```python
-
-```
