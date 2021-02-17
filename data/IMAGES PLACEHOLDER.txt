@@ -1,7 +1,12 @@
-NIH Chest X-rays (Version 3)
-Over 112,000 Chest X-ray images from more than 30,000 unique patients
-41.98GB
+**NIH Chest X-rays (Version 3)**
+Over 112,000 Chest X-ray images from more than 30,000 unique patients, 41.98GB
 
-https://www.kaggle.com/nih-chest-xrays/data
+1. Use either link to download dataset:
+[https://www.kaggle.com/nih-chest-xrays/data](https://www.kaggle.com/nih-chest-xrays/data)
+[https://nihcc.app.box.com/v/ChestXray-NIHCC](https://nihcc.app.box.com/v/ChestXray-NIHCC)
 
-Extract "images_0*" folders into an "images" folder to continue work.
+2. Extract "images_0*" folders into an "images" folder to maintain file path dependencies.
+
+
+Citation:
+Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers.ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases, IEEE CVPR, pp. 3462-3471,2017 

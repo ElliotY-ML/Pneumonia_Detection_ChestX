@@ -11,32 +11,38 @@ of pneumonia from chest X-Ray images.  The intention of this software is to pre-
 and classify the X-Ray for the presence or absence of pneumonia.  
 
 This project is broken is three Jupyter Notebooks:  
-1_EDA (Exploratory Data Analysis)  
-2_Build_and_Train_Model  
-3_Inference  
+- 1_EDA (Exploratory Data Analysis): Dataset metadata analysis and X-ray image pixel-level analysis. 
+- 2_Build_and_Train_Model: Image pre-processing with Keras ImageDataGenerator, split dataset using Scikit-Learn, build & train a Keras Sequential model, 
+and convert probabilistic outputs to binary predictions.  
+- 3_Inference:  DICOM pixel data extraction, normalize & standardize pixel data, and apply trained model to make predictions.
 
 
 **Fine Tuning Convolutional Neural Network VGG16 for Pneumonia Detection from X-Rays**  
 This project's model was created by fine-tuning ImageNet's VGG16 CNN model with chest X-Ray images.  
-To fine-tune the VGG16 model, parameters for only the final few model layers are trained while the other 
-layers maintain their ImageNet weights.  
-Model predictions initially come as probabilities between 0 and 1.  These probabilistic results were compared 
-against ground truth labels.  A threshold analysis was completed select the boundary to convert 
-probalistic results into binary results of pneumonia presence or absence.
-
+To fine-tune the VGG16 model, a new Keras Sequential model was created by taking VGG16 model layers 
+and freezing their ImageNet-trained weights.  Subsequent Dense and Dropout layers were added, which will have their weights trained 
+for classifying chest X-Ray images for pneumonia.
+Model predictions initially return as probabilities between 0 and 1.  These probabilistic results were compared 
+against ground truth labels.  A threshold analysis was completed to select the boundary at which 
+probalistic results are converted into binary results of either pneumonia presence or absence.
  
-Based on P.Rajpurkarpar's, et al. paper, the performance standard is F1 scores comparing radiologists and algorithms. 
-F1 scores are the harmonic average of the precision and recall of a model's predictions against the ground truth.
-Rajpurkarpar's CheXNet algorithm achieve an F1 score of 0.435, while Radiologists averaged an F1 score of 0.387. 
-These would be the benchmarks to compare newly developed algorihms to.
-This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist in Rajpurkarpar's papr. 
+The paper of Pranav Rajpurkar et al. (2017), "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", 
+provides a reference to compare against.  This paper established F1-scores as the performance metric to compare radiologists' and algorithms' 
+performance in identifying pneumonia in a subset of 420 images from the ChestX-ray14 dataset (Wang et al., 2017). 
+F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
+The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387. 
+This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
 
 - For further information about the model architecture, please read the "Algorithm Design and Function" section of 
 the [`FDA_Preparation.md`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/FDA_Preparation.md).
 - Please read [`2_Build_and_Train_Model.ipynb`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/2_Build_and_Train_Model.ipynb) for full details of model training and threhold selection.
-   
- 
-**Making Predictions**
+
+**References**
+[1]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
+[2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers.ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases, IEEE CVPR, pp. 3462-3471,2017 
+
+
+**Making Predictions**  
 The [`3_Inference Jupyter Notebook`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/3_Inference.ipynb)
 contains the functions to load DICOM files, pre-process DICOM image, 
 load the model built in 2_Build_and_Train_Model, and predict the presence of pneumonia from the DICOM image.
@@ -55,12 +61,14 @@ an error message if the DICOM file is not a Chest X-Ray.
 4.  Make prediction with `predict_image(model, img, thresh=0.245)`.
 
 
-### Datasets
-The dataset used in this project was curated by the NIH. 
+### Dataset
+The ChestX-ray14 dataset was  curated by Wang et al. and was released by NIH Clinical Center.
 It is comprised of 112,120 X-Ray images with disease labels from 30,805 unique patients. 
 The disease labels for each image were created using Natural Language Processing (NLP) to process 
-associated radiological reports. The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.
+associated radiological reports for fourteen common pathologies. The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.
 
+**References**
+[1]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers.ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases, IEEE CVPR, pp. 3462-3471,2017 
 
 ## Getting Started
 
