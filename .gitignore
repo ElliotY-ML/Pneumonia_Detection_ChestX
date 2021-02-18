@@ -4,4 +4,4 @@ data/Data_Entry_2017github.csv
 .ipynb_checkpoints
 FDA_Submission_Template.md
 xray_class_my_model.best.hdf5
-FDA_Preparation.ipynb
+FDA_Preparation_LocalOnly.ipynb
