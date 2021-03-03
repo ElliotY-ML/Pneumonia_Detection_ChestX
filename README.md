@@ -3,62 +3,29 @@ This repository contains a completed cap-stone project for Udacity's "Applying A
 part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udacity instructors and met project specifications.
 
 **Introduction**  
-Advancements in machine learning and computer vision allow new opportunities to create software to assist medical
-physicians.  Assistive software can improve patient prioritization,
-reduce physicians' efforts to examine medical images, or introduce consistent measurements of anatomy from medical images.
+Advancements in deep learning and computer vision allow new opportunities to create software to assist medical
+physicians.  Assistive software can improve patient prioritization or reduce physicians' efforts to examine medical images.
 In this project, computer vision with a convolutional neural network (CNN) model is trained to predict the presence 
-of pneumonia from chest X-Ray images.  The intention of this software is to pre-screen given chest X-Ray images prior to radiologists' review
+of pneumonia from chest X-Ray images.  More specifically, the ImageNet VGG16 CNN model was fine-tuned for this classification task.  The intention of this software is to pre-screen given chest X-Ray images prior to radiologists' review
 and classify the X-Ray for the presence or absence of pneumonia.  
 
-This project is broken is three Jupyter Notebooks:  
-- 1_EDA (Exploratory Data Analysis): Dataset metadata analysis and X-ray image pixel-level analysis. 
-- 2_Build_and_Train_Model: Image pre-processing with Keras ImageDataGenerator, split dataset using Scikit-Learn, build & train a Keras Sequential model, 
-and convert probabilistic outputs to binary predictions.  
-- 3_Inference:  DICOM pixel data extraction, normalize & standardize pixel data, and apply trained model to make predictions.
-
-
-**Fine Tuning Convolutional Neural Network VGG16 for Pneumonia Detection from X-Rays**  
-This project's model was created by fine-tuning ImageNet's VGG16 CNN model with chest X-Ray images.  
-To fine-tune the VGG16 model, a new Keras Sequential model was created by taking VGG16 model layers 
-and freezing their ImageNet-trained weights.  Subsequent Dense and Dropout layers were added, which will have their weights trained 
-for classifying chest X-Ray images for pneumonia.
-Model predictions initially return as probabilities between 0 and 1.  These probabilistic results were compared 
-against ground truth labels.  A threshold analysis was completed to select the boundary at which 
-probalistic results are converted into binary results of either pneumonia presence or absence.
- 
 The paper of Pranav Rajpurkar et al. (2017), "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", 
-provides a reference to compare against.  This paper established F1-scores as the performance metric to compare radiologists' and algorithms' 
+provides references to compare pneumonia classification performance against.  This paper established F1-scores as the metric to compare radiologists' and algorithms' 
 performance in identifying pneumonia in a subset of 420 images from the ChestX-ray14 dataset (Wang et al., 2017). 
 F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
 The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387. 
 This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
 
-- For further information about the model architecture, please read the "Algorithm Design and Function" section of 
-the [`FDA_Preparation.md`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/FDA_Preparation.md).
-- Please read [`2_Build_and_Train_Model.ipynb`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/2_Build_and_Train_Model.ipynb) for full details of model training and threhold selection.
+This project is broken is three Jupyter Notebooks:  
+- 1_EDA (Exploratory Data Analysis): NIH X-Ray Dataset metadata analysis and X-ray image pixel-level analysis. 
+- 2_Build_and_Train_Model: Image pre-processing with Keras ImageDataGenerator, split dataset using Scikit-Learn, build & train a Keras Sequential model, 
+and convert probabilistic outputs to binary predictions.  
+- 3_Inference:  DICOM pixel data extraction, normalize & standardize pixel data, and apply trained model to make predictions.
+
 
 **References**
 [1]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
 [2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers.ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases, IEEE CVPR, pp. 3462-3471,2017 
-
-
-**Making Predictions**  
-The [`3_Inference Jupyter Notebook`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/3_Inference.ipynb)
-contains the functions to load DICOM files, pre-process DICOM image, 
-load the model built in 2_Build_and_Train_Model, and predict the presence of pneumonia from the DICOM image.
-
-Inputs:
-- .dcm DICOM medical imaging file, contains metadata and a medical image
-
-Output:
-- DICOM image is displayed with a prediction of whether the patient is Positive or Negative for Pneumonia
-
-The following steps should be performed to analyze a chest X-Ray DICOM file:
-1.  Load DICOM file with `check_dicom(filename)` function.  It's output is the DICOM pixel_array or 
-an error message if the DICOM file is not a Chest X-Ray.    
-2.  Pre-process the loaded DICOM image with `preprocess_image(img=pixel_array, img_mean=0, img_std=1, img_size=(1,224,224,3))` function.
-3.  Load trained model with `load_model(model_path, weight_path)`.
-4.  Make prediction with `predict_image(model, img, thresh=0.245)`.
 
 
 ### Dataset
@@ -154,15 +121,67 @@ pip install -r pkgs.txt
 ```
 
 
-## Project Instructions
-please read Udacity's original project instructions in the `Project_Overview.md` file.
+## Instructions
+
+Udacity's original project instructions can be read in the `Project_Overview.md` file.
 
 **Project Overview**
 
    1. Exploratory Data Analysis
    2. Building and Training Your Model
-   3. Clinical Workflow Integration
+   3. Inference
    4. FDA Preparation
+
+### Part 1: Exploratory Data Analysis
+
+Open `1_EDA.ipynb` with Jupyter Notebook for exploratory data analysis.  The following data are examined:
+1.  NIH Dataset metadata contains information for each X-Ray image file its associated disease findings, patient gender, age, patient position during X-ray, and image shape.
+2.  Pixel level assessment of X-Ray image files by graphing Intensity Profiles of normalized image pixels.  X-Rays are also displayed using scikit-image.
+
+
+### Part 2: Fine Tuning Convolutional Neural Network VGG16 for Pneumonia Detection from X-Rays  
+
+Inputs:
+- ChestX-ray14 dataset containing 112,120 X-Ray images in .png format and metadata in a .csv file.
+
+Output:
+- A CNN model trained to classify a chest X-Ray image for presence or absence of pneumonia. 
+- `` containing model weights 
+
+1.  Open `2_Build_and_Train_Model` with Jupyter Notebook.
+2.  Create training data and validation data splits with scikit-learn train_test_split function.
+3.  Ensure training data split is balanced for positive and negative cases.  Ensure validation data split has a positive to negative case ratio that reflects clinical scenarios.  Also check that each split has demographics that are reflective of the overall dataset.
+4.  Prepare image preprocessing for each data split using keras ImageDataGenerator.
+5.  To fine-tune the ImageNet VGG16 model, create a new Keras Sequential model by adding VGG16 model layers and freezing their ImageNet-trained weights.  Subsequently add Dense and Dropout layers, which will have their weights trained 
+for classifying chest X-Ray images for pneumonia.
+6.  The model training will have a history to show loss metrics at each training step.
+7.  Model predictions initially return as probabilities between 0 and 1.  These probabilistic results were compared against ground truth labels.  A threshold analysis was completed to select the boundary at which probalistic results are converted into binary results of either pneumonia presence or absence.
+ 
+The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387 [1]. 
+This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
+
+**References**
+[1]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
+[2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers.ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases, IEEE CVPR, pp. 3462-3471,2017 
+
+
+### Part 3: Inference  
+The [`3_Inference Jupyter Notebook`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/3_Inference.ipynb)
+contains the functions to load DICOM files, pre-process DICOM image, 
+load the model built in 2_Build_and_Train_Model, and predict the presence of pneumonia from the DICOM image.
+
+Inputs:
+- .dcm DICOM medical imaging file, contains metadata and a medical image
+
+Output:
+- DICOM image is displayed with a prediction of whether the patient is Positive or Negative for Pneumonia
+
+The following steps should be performed to analyze a chest X-Ray DICOM file:
+1.  Load DICOM file with `check_dicom(filename)` function.  It's output is the DICOM pixel_array or 
+an error message if the DICOM file is not a Chest X-Ray.    
+2.  Pre-process the loaded DICOM image with `preprocess_image(img=pixel_array, img_mean=0, img_std=1, img_size=(1,224,224,3))` function.
+3.  Load trained model with `load_model(model_path, weight_path)`.
+4.  Make prediction with `predict_image(model, img, thresh=0.245)`.
 
 
 ## License
