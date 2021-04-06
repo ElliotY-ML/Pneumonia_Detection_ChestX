@@ -117,10 +117,18 @@ loss = 'binary_crossentropy'
 metrics = ['binary_accuracy']
     
 
-Model 3 Training Performance Visualization
-![Model 3 Training Performance](out/Model_Training_Performance.png)
-![P-R Curve](out/Precision_Recall_Curve.png)
-![ROC Curve](out/ROC_Curve.png)
+Model 3 Training Performance Visualizations  
+![Model 3 Training Performance](out/Model_Training_Performance.png)  
+**Figure 1.** Model Training History  
+
+![ROC Curve](out/ROC_Curve.png)  
+**Figure 2.** ROC Curve for threshold selection by maximizing distance away from chance prediction  
+
+![F1Score vs. Thresholds](out/f1_threshold.png)  
+**Figure 3.** F1-Scores vs Thresholds for threshold selection by maximizing F1-Score  
+
+![P-R Curve](out/Precision_Recall_Curve.png)  
+**Figure 4.** Precision-Recall Curve for threshold selection by maximizing Recall  
 
 Confusion Matrix:
 Optimize by ROC determined Threshold:
@@ -164,7 +172,8 @@ Based on EDA work, the Data_Entr_2017.cvs contains 1,431 Images positive for Pne
 
 The data set was split into 80% Training data and 20% for validation data.
 
-![Age](out/Age_Distribution.png)
+![Age](out/Age_Distribution.png)  
+**Figure 5.** Age Distribution of patients with pneumonia in the complete dataset
 
 **Description of Training Dataset:** 
 <br>For the training data set, the positive to negative images must be equal in number.  
@@ -185,11 +194,9 @@ Another Two-sample T-Test showed that the age distribution of Females in the Tra
 
 
 
-
-
-
 ### 5. Ground Truth
-<br> The dataset used in this project was curated by the NIH.  It is comprised of 112,120 X-Ray images with disease labels from 30,805 unique patients.  The disease labels for each image were created using Natural Language Processing (NLP) to process associated radiological reports.  The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.  
+
+The dataset used in this project was curated by the NIH.  It is comprised of 112,120 X-Ray images with disease labels from 30,805 unique patients.  The disease labels for each image were created using Natural Language Processing (NLP) to process associated radiological reports.  The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.  
 This limitation on the NLP accuracy cannot be rectified, because the original radiology reports are not publically available to review and confirm labels. If these reports are available for human review, then the labels' accuracy will be reasonably higher.
 
 
@@ -199,7 +206,6 @@ This limitation on the NLP accuracy cannot be rectified, because the original ra
 
 **Patient Population Description for FDA Validation Dataset:**
 <br>The patient population should consist of Males and Females in a ratio of approximately 1:1, of ages 95 and younger, and are being screened for Pneumonia.  The expected rate of Positive Pneumonia cases is approximately 20% of those being screened.  <br>Imaging modality must be X-Rays (Code DX) of frontal positions (PA or AP) on Patient Chests.
-
 
 **Ground Truth Acquisition Methodology:**
 <br>The purpose of this device is to assist Radiologist with their workflow.

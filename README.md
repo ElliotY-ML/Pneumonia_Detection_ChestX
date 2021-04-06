@@ -155,7 +155,7 @@ for classifying chest X-Ray images for pneumonia.
 The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387 [2]. 
 This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
 
-**References**
+**References**  
 [1]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, Mohammadhadi Bagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)  
 [2]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
 
@@ -176,8 +176,10 @@ The following steps should be performed to analyze a chest X-Ray DICOM file:
 3.  Load trained model with `load_model(model_path, weight_path)`.
 4.  Make prediction with `predict_image(model, img, thresh=0.245)`.
 
-Example of in-line output in Jupyter Notebook:  
-![test1.dcm](out/Example_test1.JPG) 
+
+![test1.dcm](out/Example_test1.JPG)  
+**Figure 1.** Example of in-line prediction output in Jupyter Notebook  
+
 
 ### Part 4: FDA Preparation  
 Complete project results discussion can be found in `FDA_Preparation.md`
