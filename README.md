@@ -83,7 +83,7 @@ Using Anaconda consists of the following:
 For Windows users, these following commands need to be executed from the **Anaconda prompt** as opposed to a Windows terminal window. For Mac, a normal terminal window will work. 
 
 #### Git and version control
-These instructions also assume you have `git` installed for working with Github from a terminal window, but if you do not, you can download that first with the command:
+These instructions also assume you have `git` installed for working with GitHub from a terminal window, but if you do not, you can download that first with the command:
 ```
 conda install git
 ```
@@ -150,7 +150,7 @@ Output:
 for classifying chest X-Ray images for pneumonia.
 6.  The model training will have a history to show loss metrics at each training epoch.  The best model weights are also captured at each training epoch.
 7.  Model predictions initially return as probabilities between 0 and 1.  These probabilistic results were compared against ground truth labels.  
-8.  A threshold analysis was completed to select the boundary at which probalistic results are converted into binary results of either pneumonia presence or absence.
+8.  A threshold analysis was completed to select the boundary at which probabilistic results are converted into binary results of either pneumonia presence or absence.
  
 The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387 [2]. 
 This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
