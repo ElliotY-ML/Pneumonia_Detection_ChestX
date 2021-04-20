@@ -9,7 +9,7 @@ In this project, computer vision with a convolutional neural network (CNN) model
 or absence of pneumonia from chest X-Ray images. The VGG16 CNN model was fine-tuned for this classification task. The intended use for this model is to pre-screen chest X-Ray images prior to radiologists' review to reduce their workload.  
 
 The paper of Pranav Rajpurkar et al. (2017), "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", 
-provides references to compare pneumonia classification performance against.  This paper established F1-scores as the metric to compare radiologists' and algorithms' 
+provides benchmarks to compare pneumonia classification performance against.  This paper established F1-scores as the metric to compare radiologists' and algorithms' 
 performance in identifying pneumonia(Wang et al., 2017). 
 F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
 In a subset of 420 images from the ChestX-ray14 dataset, the CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387. 
