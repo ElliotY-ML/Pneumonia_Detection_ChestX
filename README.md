@@ -1,5 +1,5 @@
 # Pneumonia Detection From X-Rays
-This repository contains a completed cap-stone project for Udacity's "Applying AI to 2D Medical Imaging Data" course, 
+This repository contains a completed cap-stone project for the Udacity "Applying AI to 2D Medical Imaging Data" course, 
 part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udacity instructors and met project specifications.
 
 **Introduction**  
@@ -116,7 +116,7 @@ cd Pneumonia_Detection_ChestX
 
 ## Repository Instructions
 
-Udacity's original project instructions can be read in the `Project_Overview.md` file.
+The original Udacity project instructions can be read in [`Udacity_Project_Overview.md`](Udacity_Project_Overview.md).
 
 **Project Overview**
 
