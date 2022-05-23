@@ -13,7 +13,7 @@ provides benchmarks to compare pneumonia classification performance against.  Th
 performance in identifying pneumonia(Wang et al., 2017). 
 F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
 In a subset of 420 images from the ChestX-ray14 dataset, the CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387. 
-This project's final F1 score is 0.36, which is similar in performance to the panel of radiologists. 
+This project's final F1 score is 0.366, which is similar in performance to the panel of radiologists. 
 
 This project is organized in three Jupyter Notebooks:  
 - 1_EDA (Exploratory Data Analysis): NIH X-Ray Dataset metadata analysis and X-ray image pixel-level analysis. 
