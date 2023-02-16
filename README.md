@@ -2,7 +2,19 @@
 This repository contains a completed cap-stone project for the Udacity "Applying AI to 2D Medical Imaging Data" course, 
 part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udacity instructors and met project specifications.
 
-**Introduction**  
+# Table of Contents
+- [Introduction](#introduction)
+	- [Dataset](#dataset)
+- [Getting Started](#getting-started)
+	- [Installation](#1-installation)
+	- [Create and Activate the Environment](2-create-and-activate-the-environment)
+- [Repository Instructions](#repository-instructions)
+	- [Part 1: Exploratory Data Analysis](#part-1-exploratory-data-analysis)
+	- [Part 2: Building and Training Your Model, Fine Tuning Convolutional Neural Network](#part-2-building-and-training-your-model-fine-tuning-convolutional-neural-network-vgg16-for-pneumonia-detection-from-x-rays)
+	- [Part 3: Inference](#part-3-inference)
+	- [Part 4: FDA Preparation](#part-4-fda-preparation) 
+
+# Introduction
 Advancements in deep learning and computer vision allow new opportunities to create software to assist medical
 physicians.  Assistive software can improve patient prioritization or reduce physicians' efforts to examine medical images.
 In this project, computer vision with a convolutional neural network (CNN) model is trained to predict the presence 
@@ -21,7 +33,7 @@ This project is organized in three Jupyter Notebooks:
 and convert probabilistic outputs to binary predictions.  
 - 3_Inference:  DICOM pixel data extraction, normalize & standardize pixel data, and apply trained model to make predictions.
 
-![test1.dcm](out/Example_test1.JPG)  
+![test1.dcm](./out/Example_test1.JPG)  
 **Figure 1.** Example of in-line prediction output in `3_Inference.ipynb` Jupyter Notebook 
 
 **References**  
@@ -29,16 +41,15 @@ and convert probabilistic outputs to binary predictions.
 [2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)
 
 
-### Dataset
-This project uses the ChestX-ray14 dataset curated by Wang et al. and released by NIH Clinical Center. 
+## Dataset
+This project uses the ChestX-ray14 dataset curated by Wang et al. and released by NIH Clinical Center.  
 It is comprised of 112,120 X-Ray images with disease labels from 30,805 unique patients.  
-The disease labels for each image were created using Natural Language Processing (NLP) to process 
-associated radiological reports for fourteen common pathologies. The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.
+The disease labels for each image were created using Natural Language Processing (NLP) to process associated radiological reports for fourteen common pathologies. The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.
 
 **References**  
 [1]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)
 
-## Getting Started
+# Getting Started
 
 1. Set up your Anaconda environment.  
 2. Clone `https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX.git` GitHub repo to your local machine.
@@ -48,17 +59,13 @@ ImageNet VGG16 CNN model fine-tuning, and threshold analysis.
 5. Open `3_Inference.ipynb` with Jupyter Notebook for inference with a DICOM file.
 6. Complete project results discussion can be found in `FDA_Preparation.md`.
 
-### Dependencies  
+## Dependencies  
 Using Anaconda consists of the following:
 
 1. Install [`miniconda`](http://conda.pydata.org/miniconda.html) on your computer, by selecting the latest Python version for your operating system. If you already have `conda` or `miniconda` installed, you should be able to skip this step and move on to step 2.
-2. Create and activate * a new `conda` [environment](http://conda.pydata.org/docs/using/envs.html).
+2. Create and activate a new `conda` [environment](http://conda.pydata.org/docs/using/envs.html).
 
-\* Each time you wish to work on any exercises, activate your `conda` environment!
-
----
-
-## 1. Installation
+### 1. Installation
 
 **Download** the latest version of `miniconda` that matches your system.
 
@@ -79,11 +86,11 @@ Using Anaconda consists of the following:
 - **Mac:** https://docs.conda.io/en/latest/miniconda.html#macosx-installers
 - **Windows:** https://docs.conda.io/en/latest/miniconda.html#windows-installers
 
-## 2. Create and Activate the Environment
+### 2. Create and Activate the Environment
 
 For Windows users, these following commands need to be executed from the **Anaconda prompt** as opposed to a Windows terminal window. For Mac, a normal terminal window will work. 
 
-#### Git and version control
+### Git and version control
 These instructions also assume you have `git` installed for working with GitHub from a terminal window, but if you do not, you can download that first with the command:
 ```
 conda install git
@@ -111,29 +118,24 @@ cd Pneumonia_Detection_ChestX
 	conda activate ChestX-Pneumonia
 	```
 	
-	At this point your command line should look something like: `(ChestX-Pneumonia) <User>:USER_DIR <user>$`. The `(ChestX-Pneumonia)` indicates that your environment has been activated.
+	At this point your command line should look something like: `(ChestX-Pneumonia) <User>:USER_DIR <user>$`. The `(ChestX-Pneumonia)` indicates that your environment has been activated.  
 
-
-## Repository Instructions
-
-The original Udacity project instructions can be read in [`Udacity_Project_Overview.md`](Udacity_Project_Overview.md).
+# Repository Instructions
+The original Udacity project instructions can be read in [`Udacity_Project_Overview.md`](./Udacity_Project_Overview.md).
 
 **Project Overview**
-
    1. Exploratory Data Analysis
    2. Building and Training Your Model
    3. Inference
    4. FDA Preparation
 
-### Part 1: Exploratory Data Analysis  
-
+## Part 1: Exploratory Data Analysis  
 Open `1_EDA.ipynb` with Jupyter Notebook for exploratory data analysis.  The following data are examined:
 1.  ChestX-ray14 Dataset metadata contains information for each X-Ray image file, the associated disease findings, patient gender, age, patient position during X-ray, and image shape.
 2.  Pixel level assessment of X-Ray image files by graphing Intensity Profiles of normalized image pixels.  X-Rays are also displayed using scikit-image.
 
 
-### Part 2: Building and Training Your Model, Fine Tuning Convolutional Neural Network VGG16 for Pneumonia Detection from X-Rays  
-
+## Part 2: Building and Training Your Model, Fine Tuning Convolutional Neural Network VGG16 for Pneumonia Detection from X-Rays  
 Inputs:
 - ChestX-ray14 dataset containing 112,120 X-Ray images (.png) in `data/images` and metadata in `data/Data_Entry_2017.csv` file [1].  
 **NOTE:** The dataset is not included in this GitHub repo, because the dataset size is greater than 42GB.  Please download a copy of the dataset from [https://nihcc.app.box.com/v/ChestXray-NIHCC](https://nihcc.app.box.com/v/ChestXray-NIHCC) and unpack into `/data/images`.
@@ -154,14 +156,14 @@ for classifying chest X-Ray images for pneumonia.
 8.  A threshold analysis was completed to select the boundary at which probabilistic results are converted into binary results of either pneumonia presence or absence.
  
 The CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387 [2]. 
-This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist. 
+This project's final F1 score is 0.36, which is similar in performance to the panel of Radiologist.  
 
 **References**  
 [1]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, Mohammadhadi Bagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)  
 [2]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
 
 
-### Part 3: Inference  
+## Part 3: Inference  
 The [`3_Inference Jupyter Notebook`](https://github.com/ElliotY-ML/Pneumonia_Detection_ChestX/blob/master/3_Inference.ipynb)
 contains the functions to load DICOM files, pre-process DICOM image, load the model built in 2_Build_and_Train_Model, and predict the presence of pneumonia from the DICOM image.
 
@@ -177,12 +179,8 @@ The following steps should be performed to analyze a chest X-Ray DICOM file:
 3.  Load trained model with `load_model(model_path, weight_path)`.
 4.  Make prediction with `predict_image(model, img, thresh=0.245)`.
 
-
-
-
-### Part 4: FDA Preparation  
+## Part 4: FDA Preparation  
 Complete project results discussion can be found in `FDA_Preparation.md`
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md)
