@@ -7,7 +7,7 @@ part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udaci
 	- [Dataset](#dataset)
 - [Getting Started](#getting-started)
 	- [Installation](#1-installation)
-	- [Create and Activate the Environment](2-create-and-activate-the-environment)
+	- [Create and Activate the Environment](#2-create-and-activate-the-environment)
 - [Repository Instructions](#repository-instructions)
 	- [Part 1: Exploratory Data Analysis](#part-1-exploratory-data-analysis)
 	- [Part 2: Building and Training Your Model, Fine Tuning Convolutional Neural Network](#part-2-building-and-training-your-model-fine-tuning-convolutional-neural-network-vgg16-for-pneumonia-detection-from-x-rays)
