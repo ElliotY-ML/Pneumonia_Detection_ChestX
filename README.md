@@ -4,6 +4,8 @@ part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udaci
 
 # Table of Contents
 - [Introduction](#introduction)
+	- [Computer Vision for X-Ray Images](#computer-vision-for-x-ray-images)
+	- [Repository Files](#repository-files)
 	- [Dataset](#dataset)
 - [Getting Started](#getting-started)
 	- [Installation](#1-installation)
@@ -15,18 +17,22 @@ part of the AI for Healthcare Nanodegree program.  It has been reviewed by Udaci
 	- [Part 4: FDA Preparation](#part-4-fda-preparation) 
 
 # Introduction
-Advancements in deep learning and computer vision allow new opportunities to create software to assist medical
-physicians.  Assistive software can improve patient prioritization or reduce physicians' efforts to examine medical images.
-In this project, computer vision with a convolutional neural network (CNN) model is trained to predict the presence 
-or absence of pneumonia from chest X-Ray images. The VGG16 CNN model was fine-tuned for this classification task. The intended use for this model is to pre-screen chest X-Ray images prior to radiologists' review to reduce their workload.  
 
-The paper of Pranav Rajpurkar et al. (2017), "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", 
-provides benchmarks to compare pneumonia classification performance against.  This paper established F1-scores as the metric to compare radiologists' and algorithms' 
-performance in identifying pneumonia(Wang et al., 2017). 
-F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
-In a subset of 420 images from the ChestX-ray14 dataset, the CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387. 
-This project's final F1 score is 0.366, which is similar in performance to the panel of radiologists. 
+### Computer Vision for X-Ray Images
+Advancements in deep learning and computer vision allow new opportunities to create software to assist medical physicians.  Assistive software can improve patient prioritization or reduce physicians' efforts to examine medical images. In this project, computer vision with a convolutional neural network (CNN) model is trained to predict the presence or absence of pneumonia from chest X-Ray images. The VGG16 CNN model was fine-tuned for this classification task. The intended use for this model is to pre-screen chest X-Ray images prior to radiologists' review to reduce their workload.  
 
+The paper of Pranav Rajpurkar et al., "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", provides benchmarks to compare pneumonia classification performance against [1].  This paper established F1-scores as the metric to compare radiologists' and algorithms' performance in identifying pneumonia. F1-scores are the harmonic average of the precision and recall of a model's predictions against ground truth labels.
+
+In a subset of 420 images from the ChestX-ray14 dataset [2], the CheXNet algorithm achieved an F1 score of 0.435, while a panel of four independent Radiologists averaged an F1 score of 0.387 [1]. 
+
+This repo's CNN model achieved an F1 score of 0.366, which is similar in performance to the panel of radiologists. 
+
+**References**  
+[1]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
+[2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, Mohammadhadi Bagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)
+
+
+### Repository Files
 This project is organized in three Jupyter Notebooks:  
 - 1_EDA (Exploratory Data Analysis): NIH X-Ray Dataset metadata analysis and X-ray image pixel-level analysis. 
 - 2_Build_and_Train_Model: Image pre-processing with Keras ImageDataGenerator, split dataset using Scikit-Learn, build & train a Keras Sequential model, 
@@ -36,12 +42,7 @@ and convert probabilistic outputs to binary predictions.
 ![test1.dcm](./out/Example_test1.JPG)  
 **Figure 1.** Example of in-line prediction output in `3_Inference.ipynb` Jupyter Notebook 
 
-**References**  
-[1]  Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng, "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning,"  arXiv:1711.05225, Dec 2017. [Link](https://arxiv.org/abs/1711.05225)   
-[2]  Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, MohammadhadiBagheri, Ronald M. Summers. "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases", IEEE CVPR, pp. 3462-3471,2017 [Link](https://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf)
-
-
-## Dataset
+### Dataset
 This project uses the ChestX-ray14 dataset curated by Wang et al. and released by NIH Clinical Center.  
 It is comprised of 112,120 X-Ray images with disease labels from 30,805 unique patients.  
 The disease labels for each image were created using Natural Language Processing (NLP) to process associated radiological reports for fourteen common pathologies. The estimated accuracy of the NLP labeling accuracy is estimated to be >90%.
@@ -184,3 +185,5 @@ Complete project results discussion can be found in `FDA_Preparation.md`
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md)
+
+[Back to Top](#table-of-contents)
